@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="sv">
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+        <link rel="stylesheet" type="text/css" href="lib/ext-3.4.0/resources/css/ext-all.css"></link>
+        
+        <script type="text/javascript" src="lib/jQuery/jquery-1.6.2.min.js"></script>
+
+        <script type="text/javascript" src="lib/ext-3.4.0/adapter/ext/ext-base-debug.js"></script>
+        <script type="text/javascript" src="lib/ext-3.4.0/ext-all-debug.js"></script>
+        
+        <script type="text/javascript" src="lib/tiny_mce/tiny_mce_src.js"></script>
+        <script type="text/javascript" src="Ext.ux.TinyMCE.js"></script>
+
+        <script type="text/javascript">
+            Ext.onReady(function() {
+                Ext.BLANK_IMAGE_URL = 'lib/ext-3.4.0/resources/images/default/s.gif';
+                Ext.QuickTips.init();
+                
+                /**
+                 * 
+                 * second attempt and here its visible and clear - when closing the two tabs with tinymce and finally tab #1 it clear that tinymce is still there
+                 * 
+                */ 
+                
+                var tabpanel = new Ext.TabPanel({
+                });
+                
+                var tabitem1 = new Ext.FormPanel({
+                    closable: true,
+                    title: 'tabitem #1',
+                    items: [
+                        {xtype: 'textfield', fieldLabel: 'Label', value: 'tab panel #1'}
+                    ]
+                });
+                
+                var tabitem2 = new Ext.FormPanel({
+                    closable: true,
+                    title: 'tabitem #2',
+                    items: [
+                        {xtype: 'tinymce', fieldLabel: 'Label', tinymceSettings: {  theme: 'advanced',  plugins: 'safari, fullscreen, advlink, advimage',  theme_advanced_buttons1: 'bold, italic, underline, strikethrough, |, justifyleft, justifycenter, justifyright, justifyfull, |, bullist, numlist, |, image, |, link, unlink, anchor, |, charmap, |, sub, sup, |, cleanup, code, |, fullscreen',  theme_advanced_buttons2: '',  theme_advanced_buttons3: '',  theme_advanced_toolbar_location: 'top',  theme_advanced_toolbar_align: 'left',  entity_encoding: 'raw',  forced_root_block: 'p',  force_br_newlines: false,  external_image_list_url: '',  document_base_url: '',  relative_urls: false,   content_css: ''}, value: '<p>tab panel #2</p>'}
+                    ]
+                });
+                
+                var tabitem3 = new Ext.FormPanel({
+                    closable: true,
+                    title: 'tabitem #3',
+                    items: [
+                        {xtype: 'tinymce', fieldLabel: 'Label', tinymceSettings: {  theme: 'advanced',  plugins: 'safari, fullscreen, advlink, advimage',  theme_advanced_buttons1: 'bold, italic, underline, strikethrough, |, justifyleft, justifycenter, justifyright, justifyfull, |, bullist, numlist, |, image, |, link, unlink, anchor, |, charmap, |, sub, sup, |, cleanup, code, |, fullscreen',  theme_advanced_buttons2: '',  theme_advanced_buttons3: '',  theme_advanced_toolbar_location: 'top',  theme_advanced_toolbar_align: 'left',  entity_encoding: 'raw',  forced_root_block: 'p',  force_br_newlines: false,  external_image_list_url: '',  document_base_url: '',  relative_urls: false,   content_css: ''}, value: '<p>tab panel #3</p>'}
+                    ]
+                });                
+                
+                tabpanel.add(tabitem1);
+                
+                tabpanel.add(tabitem2);
+                
+                tabpanel.add(tabitem3);
+				
+				
+                
+                /*
+                 * 
+                 * this was the first attempt - did not show any issues
+                 * 
+
+                var tabpanel = new Ext.TabPanel({
+                    items:[{
+                        closable: true,
+                        title: 'tab panel #1',
+                        items: [
+                        
+							{xtype: 'textfield', fieldLabel: 'Label', value: 'tab panel #1'}
+                        
+                        ]
+                    },{
+                        closable: true,
+                        title: 'tab panel #2',
+                        items: [
+						{
+							xtype: 'tinymce', 
+							fieldLabel: 'Label', 
+							tinymceSettings: {  
+								theme: 'advanced',  
+								plugins: 'safari, fullscreen, advlink, advimage',  
+								theme_advanced_buttons1: 'bold, italic, underline, strikethrough, |, justifyleft, justifycenter, justifyright, justifyfull, |, bullist, numlist, |, image, |, link, unlink, anchor, |, charmap, |, sub, sup, |, cleanup, code, |, fullscreen',  
+								theme_advanced_buttons2: '',  
+								theme_advanced_buttons3: '',  
+								theme_advanced_toolbar_location: 'top',  
+								theme_advanced_toolbar_align: 'left',  
+								entity_encoding: 'raw',  
+								forced_root_block: 'p',  
+								force_br_newlines: false,  
+								external_image_list_url: '',  
+								document_base_url: '',  
+								relative_urls: false,   
+								content_css: ''
+							}, 
+							value: '<p>tab panel #2</p>'
+						}
+                        ]
+                    },{
+                        closable: true,
+                        title: 'tab panel #3',
+                        items: [
+
+							{xtype: 'tinymce', fieldLabel: 'Label', tinymceSettings: {  theme: 'advanced',  plugins: 'safari, fullscreen, advlink, advimage',  theme_advanced_buttons1: 'bold, italic, underline, strikethrough, |, justifyleft, justifycenter, justifyright, justifyfull, |, bullist, numlist, |, image, |, link, unlink, anchor, |, charmap, |, sub, sup, |, cleanup, code, |, fullscreen',  theme_advanced_buttons2: '',  theme_advanced_buttons3: '',  theme_advanced_toolbar_location: 'top',  theme_advanced_toolbar_align: 'left',  entity_encoding: 'raw',  forced_root_block: 'p',  force_br_newlines: false,  external_image_list_url: '',  document_base_url: '',  relative_urls: false,   content_css: ''}, value: '<p>tab panel #3</p>'}
+
+                        ]
+                    }]
+                });
+                */
+                
+                tabpanel.render(document.body);
+                
+            });
+        </script>
+
+    </head>
+    <body>
+        <!-- empty -->
+    </body>
+</html>

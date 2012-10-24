@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>Ext.ux.TinyMCE</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" xmlns="">
+	
+	<link rel="stylesheet" type="text/css" href="../../lib/ext-4.0.2a/resources/css/ext-all.css" />
+	<link rel="stylesheet" type="text/css" href="../../lib/jquery-qunit/qunit/qunit.css" />
+
+	<script type="text/javascript" src="../../lib/jQuery/jquery-1.6.2.min.js"></script>
+	<script type="text/javascript" src="../../lib/jquery-qunit/qunit/qunit.js"></script>
+
+	<script type="text/javascript" src="../../lib/ext-4.0.2a/ext-all-debug.js" ></script>
+	<script type="text/javascript" src="../../lib/tiny_mce/tiny_mce_src.js"></script>
+	<script type="text/javascript" src="../../Ext.ux.TinyMCE-4.js"></script>
+
+	<script type="text/javascript" src="unittest.js" />
+	
+	<script type="text/javascript">
+	Ext.onReady( function() {
+	
+		$("#txtTinyMceInstances").text( tinyMCE.editors.length );
+		
+		Ext.get( "cmdOpen" ).on( "click", function() {
+
+			var dlg = Ext.create( "Ext.window.Window", {
+				title: "TinyMCE",
+				width: 600,
+				height: 500,
+				minWidth: 100,
+				minHeight: 100,
+				layout: "fit",
+				modal: false,
+				resizable: true,
+				maximizable: true,
+				closeAction: "close",
+				hideMode: "offsets",
+				constrainHeader: true,
+				buttons: [
+				{
+					text: "Submit",
+					handler: function() {
+						Ext.getCmp( "myform" ).getForm().submit({
+							url: "/test.aspx",
+							method: "GET"
+						});
+					},
+					scope: this
+				}
+				],
+				items: [
+				{
+					id: "myform",
+					xtype: "form",
+					autoScroll: true,
+					bodyStyle: 'padding: 10px',
+					border: false,
+					bodyBorder: false,
+					items: [
+					{
+						name: "richtext",
+						xtype: "tinymce",
+						height: 300,
+						tinymceSettings: {
+							theme : "advanced",
+							plugins: "pagebreak,style,layer,table,advhr,advimage,advlink,emotions,iespell,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,noneditable,visualchars,nonbreaking,xhtmlxtras,template",
+							theme_advanced_buttons1 : "bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,|,styleselect,formatselect,fontselect,fontsizeselect",
+							theme_advanced_buttons2 : "cut,copy,paste,pastetext,pasteword,|,search,replace,|,bullist,numlist,|,outdent,indent,blockquote,|,undo,redo,|,link,unlink,anchor,image,cleanup,help,code,|,insertdate,inserttime,preview,|,forecolor,backcolor",
+							theme_advanced_buttons3 : "tablecontrols,|,hr,removeformat,visualaid,|,sub,sup,|,charmap,emotions,iespell,media,advhr,|,print,|,ltr,rtl,|",
+							theme_advanced_buttons4 : "insertlayer,moveforward,movebackward,absolute,|,styleprops,|,cite,abbr,acronym,del,ins,attribs,|,visualchars,nonbreaking,template,pagebreak",
+							theme_advanced_toolbar_location : "top",
+							theme_advanced_toolbar_align : "left",
+							theme_advanced_statusbar_location : "bottom",
+							theme_advanced_resizing : false,
+							extended_valid_elements : "a[name|href|target|title|onclick],img[class|src|border=0|alt|title|hspace|vspace|width|height|align|onmouseover|onmouseout|name],hr[class|width|size|noshade],font[face|size|color|style],span[class|align|style]",
+							template_external_list_url : "example_template_list.js"
+						},
+						value: "<h1>Demo</h1><p>Ext.ux.TinyMCE works...</p>"
+					}
+					]
+				}					
+				],
+				listeners: {
+					show: function() {
+						$("#txtTinyMceInstances").text( tinyMCE.editors.length );
+					},
+					destroy: function() {
+						$("#txtTinyMceInstances").text( tinyMCE.editors.length );
+					}
+				}
+			});
+		
+			dlg.show( Ext.get( "cmdOpen" ) );
+
+		})
+	});
+	</script>
+	
+</head>
+<body>
+	<h1 id="qunit-header">Ext.ux.TinyMCE Test Suite</h1>
+	<h2 id="qunit-banner"></h2>
+	<div id="qunit-testrunner-toolbar"></div>
+	<h2 id="qunit-userAgent"></h2>
+	<ol id="qunit-tests"></ol>
+	<div id="qunit-fixture">test markup</div>
+</body>
+</html>

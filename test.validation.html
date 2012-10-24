@@ -1,0 +1,209 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>Ext.ux.TinyMCE</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" xmlns="">
+	
+	<link rel="stylesheet" type="text/css" href="lib/ext-3.4.0/resources/css/ext-all.css" />
+	<style type="text/css">
+		body { padding: 10px; font-family: Arial; font-size: 12pt;}
+		h1 { margin-bottom: 0.3em; }
+		h2 { margin-top: 1em }
+		ul { list-style: disc outside; padding-left: 1.5em; }
+	</style>
+		
+	<script type="text/javascript" src="lib/jQuery/jquery-1.6.2.min.js"></script>
+	<script type="text/javascript" src="lib/ext-3.4.0/adapter/jquery/ext-jquery-adapter.js" ></script>
+	<script type="text/javascript" src="lib/ext-3.4.0/ext-all.js"></script>
+	<script type="text/javascript" src="lib/tiny_mce/tiny_mce.js"></script>
+	<script type="text/javascript" src="Ext.ux.TinyMCE.min.js"></script>
+
+	
+	<script type="text/javascript">
+		Ext.onReady(function() {
+
+			Ext.get("cmdTest_1").on("click", function() {
+
+				var dlg = new Ext.Window({
+					title: "TinyMCE",
+					width: 720,
+					height: 315,
+					layout: "fit",
+					modal: false,
+					resizable: true,
+					maximizable: true,
+					closeAction: "hide",
+					hideMode: "offsets",
+					constrainHeader: true,
+					items: [
+						{
+							layout: "form",
+							labelWidth: 80,
+							autoScroll: true,
+							bodyStyle: 'padding: 10px',
+							border: false,
+							bodyBorder: false,
+							labelAlign: 'top',
+							items: [{
+								xtype: "tinymce",
+								fieldLabel: 'allowBlank: false',
+								width: 685,
+								height: 200,
+								allowBlank: false,
+								msgTarget: 'under',
+								invalidText: 'TEST!',
+								labelSeparator: '',
+								tinymceSettings: {
+									theme: "advanced",
+									plugins: "pagebreak,style,layer,table,advhr,advimage,advlink,emotions,iespell,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,noneditable,visualchars,nonbreaking,xhtmlxtras,template",
+									theme_advanced_buttons1: "bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,|,styleselect,formatselect,fontselect,fontsizeselect",
+									theme_advanced_buttons2: "cut,copy,paste,pastetext,pasteword,|,search,replace,|,bullist,numlist,|,outdent,indent,blockquote,|,undo,redo,|,link,unlink,anchor,image,cleanup,help,code,|,insertdate,inserttime,preview,|,forecolor,backcolor",
+									theme_advanced_buttons3: "tablecontrols,|,hr,removeformat,visualaid,|,sub,sup,|,charmap,emotions,iespell,media,advhr,|,print,|,ltr,rtl,|",
+									theme_advanced_buttons4: "insertlayer,moveforward,movebackward,absolute,|,styleprops,|,cite,abbr,acronym,del,ins,attribs,|,visualchars,nonbreaking,template,pagebreak",
+									theme_advanced_toolbar_location: "top",
+									theme_advanced_toolbar_align: "left",
+									theme_advanced_statusbar_location: "bottom",
+									extended_valid_elements: "a[name|href|target|title|onclick],img[class|src|border=0|alt|title|hspace|vspace|width|height|align|onmouseover|onmouseout|name],hr[class|width|size|noshade],font[face|size|color|style],span[class|align|style]",
+									template_external_list_url: "example_template_list.js",
+									accessibility_focus: false
+
+								}
+							}]
+						}]
+				});
+
+				dlg.show(Ext.get("cmdTest_1"));
+			});
+
+			Ext.get("cmdTest_2").on("click", function() {
+
+				var dlg = new Ext.Window({
+					title: "TinyMCE",
+					width: 720,
+					height: 300,
+					layout: "fit",
+					modal: false,
+					resizable: true,
+					maximizable: true,
+					closeAction: "hide",
+					hideMode: "offsets",
+					constrainHeader: true,
+					items: [{
+						layout: "form",
+						labelWidth: 80,
+						autoScroll: true,
+						bodyStyle: 'padding: 10px',
+						border: false,
+						bodyBorder: false,
+						labelAlign: 'top',
+						items: [
+						{
+							xtype: "tinymce",
+							width: 685,
+							height: 200,
+							fieldLabel: 'minLength: 9, maxLength: 10',
+							labelSeparator: '',
+							minLength: 9,
+							maxLength: 10,
+							msgTarget: 'under',
+							tinymceSettings: {
+								theme: "advanced",
+								plugins: "safari,pagebreak,style,layer,table,advhr,advimage,advlink,emotions,iespell,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,noneditable,visualchars,nonbreaking,xhtmlxtras,template",
+								theme_advanced_buttons1: "bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,|,styleselect,formatselect,fontselect,fontsizeselect",
+								theme_advanced_buttons2: "cut,copy,paste,pastetext,pasteword,|,search,replace,|,bullist,numlist,|,outdent,indent,blockquote,|,undo,redo,|,link,unlink,anchor,image,cleanup,help,code,|,insertdate,inserttime,preview,|,forecolor,backcolor",
+								theme_advanced_buttons3: "tablecontrols,|,hr,removeformat,visualaid,|,sub,sup,|,charmap,emotions,iespell,media,advhr,|,print,|,ltr,rtl,|",
+								theme_advanced_buttons4: "insertlayer,moveforward,movebackward,absolute,|,styleprops,|,cite,abbr,acronym,del,ins,attribs,|,visualchars,nonbreaking,template,pagebreak",
+								theme_advanced_toolbar_location: "top",
+								theme_advanced_toolbar_align: "left",
+								theme_advanced_statusbar_location: "bottom",
+								extended_valid_elements: "a[name|href|target|title|onclick],img[class|src|border=0|alt|title|hspace|vspace|width|height|align|onmouseover|onmouseout|name],hr[class|width|size|noshade],font[face|size|color|style],span[class|align|style]",
+								template_external_list_url: "example_template_list.js",
+								accessibility_focus: false
+							}
+						}]
+					}]
+				});
+
+				dlg.show(Ext.get("cmdTest_2"));
+			});
+
+			Ext.get("cmdTest_3").on("click", function() {
+
+				var dlg = new Ext.Window({
+					title: "TinyMCE",
+					width: 720,
+					height: 300,
+					layout: "fit",
+					modal: false,
+					resizable: true,
+					maximizable: true,
+					closeAction: "hide",
+					hideMode: "offsets",
+					constrainHeader: true,
+					items: [{
+						layout: "form",
+						labelWidth: 80,
+						autoScroll: true,
+						bodyStyle: 'padding: 10px',
+						border: false,
+						bodyBorder: false,
+						labelAlign: 'top',
+						items: [{
+							xtype: "tinymce",
+							width: 685,
+							height: 200,
+							fieldLabel: 'validator: function(){return false;}',
+							labelSeparator: '',
+							validator: function(val) {
+								return false;
+							},
+							msgTarget: 'under',
+							tinymceSettings: {
+								theme: "advanced",
+								plugins: "safari,pagebreak,style,layer,table,advhr,advimage,advlink,emotions,iespell,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,noneditable,visualchars,nonbreaking,xhtmlxtras,template",
+								theme_advanced_buttons1: "bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,|,styleselect,formatselect,fontselect,fontsizeselect",
+								theme_advanced_buttons2: "cut,copy,paste,pastetext,pasteword,|,search,replace,|,bullist,numlist,|,outdent,indent,blockquote,|,undo,redo,|,link,unlink,anchor,image,cleanup,help,code,|,insertdate,inserttime,preview,|,forecolor,backcolor",
+								theme_advanced_buttons3: "tablecontrols,|,hr,removeformat,visualaid,|,sub,sup,|,charmap,emotions,iespell,media,advhr,|,print,|,ltr,rtl,|",
+								theme_advanced_buttons4: "insertlayer,moveforward,movebackward,absolute,|,styleprops,|,cite,abbr,acronym,del,ins,attribs,|,visualchars,nonbreaking,template,pagebreak",
+								theme_advanced_toolbar_location: "top",
+								theme_advanced_toolbar_align: "left",
+								theme_advanced_statusbar_location: "bottom",
+								extended_valid_elements: "a[name|href|target|title|onclick],img[class|src|border=0|alt|title|hspace|vspace|width|height|align|onmouseover|onmouseout|name],hr[class|width|size|noshade],font[face|size|color|style],span[class|align|style]",
+								template_external_list_url: "example_template_list.js",
+								accessibility_focus: false
+							}
+						}]
+					}]
+				});
+				dlg.show(Ext.get("cmdTest_3"));
+			});
+		
+		});
+	</script>
+	
+</head>
+<body>
+<h1>Ext.ux.TinyMCE</h1>
+<p>
+	<button id="cmdTest_1">allowBlank: false</button>
+</p>
+<p>
+	<button id="cmdTest_2">minLength: 9, maxLength: 10</button>
+</p>
+<p>
+	<button id="cmdTest_3">validator: function(){return false;}</button>
+</p>
+<hr/>
+<p>Copyright &copy;2008-2011 <a href="http://www.byte-force.com">BYTE-force</a></p>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-6725125-2");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+</body>
+</html>
